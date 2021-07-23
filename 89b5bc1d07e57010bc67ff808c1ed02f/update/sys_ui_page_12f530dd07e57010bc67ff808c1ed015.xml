@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script><![CDATA[function beautifyJSON() {
+	try{
+		var sourcejson = document.getElementById("jsoninput").value;
+		var jsonObject = JSON.parse(sourcejson);
+		var output = document.getElementById("jsonoutput");
+		output.innerHTML =  JSON.stringify(jsonObject, undefined, 3);
+	}catch(e){
+		validateJSON();
+	}
+
+}
+
+function validateJSON(){
+	var sourcejson = document.getElementById("jsoninput").value;
+	try{
+		JSON.parse(sourcejson);
+		alert('Valid JSON Payload.');
+	}catch(e){
+		alert('The provided JSON payload is invalid.');
+	}
+
+}]]></client_script>
+        <description/>
+        <direct>true</direct>
+        <endpoint>x_113026_json_beau_json-beautifier.do</endpoint>
+        <html><![CDATA[<html>
+	<head>
+		<title>
+			JSON Formatter
+		</title>
+	</head>
+	<body>
+		<textarea style="float:left" name="source" id="jsoninput" cols="100" rows="50"></textarea>
+		<div id="buttons" style="float:left">
+			<button onclick="beautifyJSON()">
+				Beautify
+			</button>
+			<button onclick="validateJSON()">
+				Validate
+			</button>
+		</div>    
+
+		<textarea style="float:left; white-space:nowrap; color: #f5427b; font-weight: bold" name="source" id="jsonoutput" cols="100" rows="50"></textarea>
+		<!-- <pre id="jsonoutput" style= "float:left; color:green; font-size: 10px; font-weight: bold;">
+		</pre> -->
+
+	</body>
+</html>       ]]></html>
+        <name>json-beautifier</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>ashish</sys_created_by>
+        <sys_created_on>2021-07-23 14:15:59</sys_created_on>
+        <sys_id>12f530dd07e57010bc67ff808c1ed015</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>json-beautifier</sys_name>
+        <sys_package display_value="JSON Beautifier" source="x_113026_json_beau">89b5bc1d07e57010bc67ff808c1ed02f</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="JSON Beautifier">89b5bc1d07e57010bc67ff808c1ed02f</sys_scope>
+        <sys_update_name>sys_ui_page_12f530dd07e57010bc67ff808c1ed015</sys_update_name>
+        <sys_updated_by>ashish</sys_updated_by>
+        <sys_updated_on>2021-07-23 14:22:14</sys_updated_on>
+    </sys_ui_page>
+</record_update>
